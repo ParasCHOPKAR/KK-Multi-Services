@@ -135,69 +135,163 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div className="max-w-2xl">
-              <h4 className="text-sm font-bold tracking-wider text-slate-500 uppercase mb-3">Our Services</h4>
-              <h2 className="text-4xl font-extrabold text-kk-blue leading-tight mb-4">
+      <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-kk-teal/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-kk-blue/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Header Layout */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-10">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-0.5 w-10 bg-kk-teal"></div>
+                <h4 className="text-sm font-bold tracking-widest text-slate-500 uppercase">Our Services</h4>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-[#0b1c3d] leading-[1.15] mb-6">
                 We Repair All Major<br/>Home <span className="text-kk-teal">Appliances</span>
               </h2>
-              <p className="text-slate-600">From kitchen to laundry, we keep your home running smoothly.</p>
+              <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
+                From your kitchen to your laundry room, our expert technicians are equipped to keep your home running smoothly with fast, reliable, and affordable repair solutions.
+              </p>
             </div>
-            <a href="#" className="inline-flex items-center gap-2 font-bold text-slate-800 hover:text-kk-red transition-colors border-b-2 border-transparent hover:border-kk-red pb-1">
-              View All Services <ArrowRight className="w-4 h-4 text-kk-red" />
-            </a>
+            
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pb-2 shrink-0">
+              <div className="flex items-center gap-4 bg-white/60 backdrop-blur-sm p-2 pr-4 rounded-full border border-slate-200/60 shadow-sm">
+                <div className="flex -space-x-3 ml-1">
+                   {[1,2,3].map((i) => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden relative">
+                          <div className="w-full h-full bg-gradient-to-br from-slate-300 to-slate-400"></div>
+                      </div>
+                    ))}
+                </div>
+                <div className="text-xs font-bold text-slate-700 leading-tight pr-2">
+                  Trusted by<br/><span className="text-kk-teal">5000+ Families</span>
+                </div>
+              </div>
+              <a href="#" className="group inline-flex items-center gap-3 bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-kk-teal text-slate-800 px-6 py-3.5 rounded-full font-bold transition-all">
+                View All Services 
+                <span className="w-8 h-8 rounded-full bg-kk-teal/10 flex items-center justify-center group-hover:bg-kk-teal transition-colors">
+                  <ArrowRight className="w-4 h-4 text-kk-teal group-hover:text-white transition-colors" />
+                </span>
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+            
             {/* Service 1 */}
-            <div className="group border border-slate-200 rounded-xl p-8 lg:p-10 text-center hover:shadow-xl hover:border-kk-teal/30 transition-all cursor-pointer">
-              <div className="relative w-full h-40 lg:h-48 mb-8">
-                <Image src="/images/appliance_fridge_1789636595538.jpg" alt="Refrigerator" fill className="object-contain" />
+            <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-white transition-colors duration-500 flex items-center justify-center">
+                <Image src="/images/appliance_fridge_1789636595538.jpg" alt="Refrigerator" fill className="object-contain p-6 mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
               </div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-kk-blue transition-colors">Refrigerator Repair</h3>
-              <p className="text-sm text-slate-500">Fast Cooling Solutions</p>
-            </div>
-            {/* Service 2 */}
-            <div className="group border border-slate-200 rounded-xl p-8 lg:p-10 text-center hover:shadow-xl hover:border-kk-teal/30 transition-all cursor-pointer">
-              <div className="relative w-full h-40 lg:h-48 mb-8">
-                <Image src="/images/appliance_washing_machine_1789636610541.jpg" alt="Washing Machine" fill className="object-contain" />
+              
+              <div className="relative z-10 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-kk-teal transition-colors">Refrigerator</h3>
+                <p className="text-sm text-slate-500 mb-6 line-clamp-2">Fast cooling solutions for all major brands and models.</p>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-sm font-bold text-kk-blue group-hover:text-kk-teal transition-colors flex items-center gap-1">
+                    Book Now <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-kk-teal group-hover:text-white text-slate-400 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-kk-blue transition-colors">Washing Machine Repair</h3>
-              <p className="text-sm text-slate-500">All Major Brands</p>
-            </div>
-            {/* Service 3 */}
-            <div className="group border border-slate-200 rounded-xl p-8 lg:p-10 text-center hover:shadow-xl hover:border-kk-teal/30 transition-all cursor-pointer">
-              <div className="relative w-full h-40 lg:h-48 mb-8">
-                <Image src="/images/appliance_microwave_1789636624228.jpg" alt="Microwave" fill className="object-contain" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-kk-blue transition-colors">Microwave Repair</h3>
-              <p className="text-sm text-slate-500">Quick & Reliable</p>
-            </div>
-            {/* Service 4 */}
-            <div className="group border border-slate-200 rounded-xl p-8 lg:p-10 text-center hover:shadow-xl hover:border-kk-teal/30 transition-all cursor-pointer">
-              <div className="relative w-full h-40 lg:h-48 mb-8">
-                <Image src="/images/appliance_ac_1789636637732.jpg" alt="AC" fill className="object-contain" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-kk-blue transition-colors">AC Repair & Service</h3>
-              <p className="text-sm text-slate-500">Cooling You Can Trust</p>
             </div>
 
-            {/* Service 6 */}
-            <div className="group border border-slate-200 rounded-xl p-8 lg:p-10 text-center hover:shadow-xl hover:border-kk-teal/30 transition-all cursor-pointer">
-              <div className="relative w-full h-40 lg:h-48 mb-8 flex items-center justify-center">
-                 <div className="w-16 h-32 bg-white rounded-t-full rounded-b-xl border border-slate-200 shadow-md relative overflow-hidden flex flex-col items-center pt-3">
-                    <div className="w-3 h-3 bg-slate-300 rounded-full mb-2"></div>
-                    <div className="w-8 h-16 border border-slate-200 rounded-full mt-auto mb-3 relative overflow-hidden">
-                       <div className="absolute bottom-0 w-full h-1/2 bg-kk-red/20"></div>
-                       <div className="absolute bottom-1/2 w-full h-px bg-kk-red"></div>
-                    </div>
-                 </div>
+            {/* Service 2 */}
+            <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-white transition-colors duration-500 flex items-center justify-center">
+                <Image src="/images/appliance_washing_machine_1789636610541.jpg" alt="Washing Machine" fill className="object-contain p-6 mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
               </div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-kk-blue transition-colors">Geyser Repair</h3>
-              <p className="text-sm text-slate-500">Safe & Efficient</p>
+              
+              <div className="relative z-10 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-kk-teal transition-colors">Washing Machine</h3>
+                <p className="text-sm text-slate-500 mb-6 line-clamp-2">Reliable repairs for front and top load machines.</p>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-sm font-bold text-kk-blue group-hover:text-kk-teal transition-colors flex items-center gap-1">
+                    Book Now <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-kk-teal group-hover:text-white text-slate-400 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Service 3 */}
+            <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-white transition-colors duration-500 flex items-center justify-center">
+                <Image src="/images/appliance_microwave_1789636624228.jpg" alt="Microwave" fill className="object-contain p-6 mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              
+              <div className="relative z-10 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-kk-teal transition-colors">Microwave</h3>
+                <p className="text-sm text-slate-500 mb-6 line-clamp-2">Quick and secure fixes for all heating issues.</p>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-sm font-bold text-kk-blue group-hover:text-kk-teal transition-colors flex items-center gap-1">
+                    Book Now <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-kk-teal group-hover:text-white text-slate-400 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 4 */}
+            <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-white transition-colors duration-500 flex items-center justify-center">
+                <Image src="/images/appliance_ac_1789636637732.jpg" alt="Air Conditioner" fill className="object-contain p-6 mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              
+              <div className="relative z-10 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-kk-teal transition-colors">Air Conditioner</h3>
+                <p className="text-sm text-slate-500 mb-6 line-clamp-2">Premium AC service & repair for ultimate comfort.</p>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-sm font-bold text-kk-blue group-hover:text-kk-teal transition-colors flex items-center gap-1">
+                    Book Now <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-kk-teal group-hover:text-white text-slate-400 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 5 */}
+            <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-kk-teal/5 transition-colors duration-500 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <Thermometer className="w-10 h-10 text-kk-teal" />
+                </div>
+              </div>
+              
+              <div className="relative z-10 flex-grow flex flex-col">
+                <h3 className="text-xl font-bold text-slate-800 mb-2 group-hover:text-kk-teal transition-colors">Geyser</h3>
+                <p className="text-sm text-slate-500 mb-6 line-clamp-2">Safe, efficient water heater services.</p>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-sm font-bold text-kk-blue group-hover:text-kk-teal transition-colors flex items-center gap-1">
+                    Book Now <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-kk-teal group-hover:text-white text-slate-400 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -265,14 +359,17 @@ export default function HomePage() {
             
             {/* Right Column: Image Grid */}
             <div className="grid grid-cols-3 gap-4 h-full">
-              {/* Top large image */}
+              {/* Top large video */}
               <div className="col-span-3 relative h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-lg group">
-                <Image 
-                  src="/images/about_ac_repair_1789636581927.jpg" 
-                  alt="Technician repairing AC" 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                >
+                  <source src="/Man_repairing_refrigerator_1080p_20260918173258.mp4" type="video/mp4" />
+                </video>
               </div>
               {/* Bottom 3 small images */}
               <div className="col-span-1 relative h-32 lg:h-40 rounded-2xl overflow-hidden shadow-md group">
@@ -623,8 +720,11 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-50 pt-20 pb-10 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer 
+        className="pt-20 pb-10 border-t border-slate-200 bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: `url('/images/footer-01.png')` }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
             
             {/* Column 1: Brand & Contact */}

@@ -5,22 +5,18 @@ import { Wrench, Clock, CreditCard, ArrowRight, Phone, CheckCircle2 } from "luci
 
 const slides = [
   {
-    image: "/images/hero_banner.png",
     tagline: "Trusted Appliance Repair Experts",
     title: <>Reliable Home <br /><span className="text-kk-teal">Appliance</span> Repair.</>,
   },
   {
-    image: "/images/hero_banner_ac.png",
     tagline: "Professional AC Cooling Solutions",
     title: <>Expert AC <br /><span className="text-kk-teal">Repair &</span> Service.</>,
   },
   {
-    image: "/images/hero_banner_refrigerator.png",
     tagline: "Fast & Reliable Fridge Service",
     title: <>Premium Fridge <br /><span className="text-kk-teal">Repair</span> Service.</>,
   },
   {
-    image: "/images/hero_banner_microwave.png",
     tagline: "Quick Microwave Fixing",
     title: <>Expert Microwave <br /><span className="text-kk-teal">Repair</span> Solutions.</>,
   }
@@ -38,10 +34,21 @@ export default function HeroSlider() {
 
   return (
     <section 
-      className="bg-white relative overflow-hidden bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out"
-      style={{ backgroundImage: `url('${slides[currentSlide].image}')` }}
+      className="relative overflow-hidden transition-all duration-1000 ease-in-out"
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/hero_video_01.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent lg:w-2/3 z-0 transition-opacity duration-1000"></div>
+      <div className="absolute top-4 right-4 z-20 transform rotate-12 opacity-80 font-['Caveat',cursive] text-4xl text-black italic">
+        Your Home<br/>Our Care
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="pt-12 pb-14 lg:pt-16 lg:pb-24 min-h-[450px] flex flex-col justify-center">
@@ -126,9 +133,6 @@ export default function HeroSlider() {
           </div>
 
           <div className="relative h-full min-h-[450px] hidden lg:block">
-            <div className="absolute top-4 right-0 lg:top-6 lg:-right-12 z-20 transform rotate-12 opacity-80 font-['Caveat',cursive] text-4xl text-slate-700 italic">
-              Your Home<br/>Our Care
-            </div>
             
             <div className="absolute bottom-8 right-8 bg-white p-4 rounded-xl shadow-2xl flex items-center gap-4 z-20 max-w-xs">
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-kk-teal/10 rounded-full flex items-center justify-center text-kk-teal shrink-0">
