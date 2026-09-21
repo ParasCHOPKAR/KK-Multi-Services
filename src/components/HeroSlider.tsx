@@ -36,17 +36,29 @@ export default function HeroSlider() {
     <section 
       className="relative overflow-hidden transition-all duration-1000 ease-in-out"
     >
+      {/* Mobile Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="md:hidden absolute inset-0 w-full h-full object-cover object-center z-0"
+      >
+        <source src="/Man_repairing_air_conditioner_1080p_20260921141441.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Desktop Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-0"
       >
         <source src="/hero_video_01.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent lg:w-2/3 z-0 transition-opacity duration-1000"></div>
-      <div className="absolute top-4 right-4 z-20 transform rotate-12 opacity-80 font-['Caveat',cursive] text-4xl text-black italic">
+      <div className="hidden md:block absolute top-4 right-4 z-20 transform rotate-12 opacity-80 font-['Caveat',cursive] text-4xl text-black italic">
         Your Home<br/>Our Care
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

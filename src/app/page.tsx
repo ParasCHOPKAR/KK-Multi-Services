@@ -33,13 +33,14 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
+import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
   return (
     <main id="top" className="min-h-screen font-sans bg-white text-slate-900">
       {/* Top Bar */}
       <div className="bg-kk-blue text-white text-xs py-2 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5 font-medium"><Clock className="w-3.5 h-3.5" /> 24/7 Emergency Service</span>
             <span className="flex items-center gap-1.5 font-medium"><Mail className="w-3.5 h-3.5" /> support@kkmulti.com</span>
@@ -55,38 +56,7 @@ export default function HomePage() {
       </div>
 
       {/* Navigation */}
-      <nav className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-2 md:py-3">
-            {/* Logo */}
-            <Link href="/" className="flex items-center shrink-0">
-              <Image src="/images/logo.jpg" alt="KK Multi Services Logo" width={240} height={70} className="h-12 md:h-14 w-auto object-contain" priority />
-            </Link>
-
-            {/* Nav Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="#" className="text-sm font-bold text-slate-900 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-kk-red">Home</Link>
-              <Link href="#" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">About Us</Link>
-              <Link href="#" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Services</Link>
-              <Link href="#" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Areas We Serve</Link>
-              <Link href="#" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Contact Us</Link>
-            </div>
-
-            {/* CTA */}
-            <div className="hidden md:flex items-center gap-6">
-              <a href="tel:+919876543210" className="flex items-center gap-2 text-slate-700 font-bold hover:text-kk-blue transition-colors">
-                <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center">
-                  <Phone className="w-4 h-4" />
-                </div>
-                +91 98765 43210
-              </a>
-              <a href="#" className="bg-kk-red hover:bg-kk-red-light text-white px-6 py-3 rounded-md font-bold text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                Get a Quote <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <HeroSlider />
@@ -135,7 +105,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+      <section id="services" className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-kk-teal/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-kk-blue/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3"></div>
@@ -272,10 +242,8 @@ export default function HomePage() {
             <div className="group relative bg-white rounded-3xl p-6 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 cursor-pointer overflow-hidden border border-slate-100 flex flex-col h-full hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kk-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-kk-teal/5 transition-colors duration-500 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-white shadow-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <Thermometer className="w-10 h-10 text-kk-teal" />
-                </div>
+              <div className="relative w-full h-48 lg:h-52 mb-6 bg-slate-50/50 rounded-2xl overflow-hidden group-hover:bg-white transition-colors duration-500 flex items-center justify-center">
+                <Image src="/images/appliance_geyser.jpg" alt="Geyser" fill className="object-contain p-6 mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
               </div>
               
               <div className="relative z-10 flex-grow flex flex-col">
@@ -297,7 +265,7 @@ export default function HomePage() {
       </section>
 
       {/* Our Work Section */}
-      <section className="py-20 bg-slate-50 relative z-0">
+      <section id="about" className="py-20 bg-slate-50 relative z-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-start mb-12">
             
@@ -484,7 +452,7 @@ export default function HomePage() {
       </section>
 
       {/* Who We Serve */}
-      <section className="pt-24 pb-12 lg:pb-28 bg-white relative overflow-hidden flex flex-col">
+      <section id="areas" className="pt-24 pb-12 lg:pb-28 bg-white relative overflow-hidden flex flex-col">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0 hidden lg:block">
           <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Buildings Background" fill className="object-cover object-center" />
@@ -693,6 +661,99 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Contact Us Section */}
+      <section id="contact" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-16">
+            <div className="lg:w-1/2">
+              <h4 className="text-sm font-bold tracking-wider text-slate-700 uppercase mb-4 relative inline-block">
+                Contact Us
+                <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-kk-teal"></span>
+              </h4>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-[#0b1c3d] leading-[1.1] mt-4 mb-6">
+                Get In Touch With<br/><span className="text-kk-teal">Our Experts.</span>
+              </h2>
+              <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+                Have a question or need to schedule a repair? Fill out the form, and our team will get back to you promptly.
+              </p>
+              
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-kk-teal/10 rounded-full flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-kk-teal" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Call Us Directly</h4>
+                    <p className="text-slate-500 mb-1">Available 24/7 for emergencies</p>
+                    <a href="tel:+919876543210" className="text-kk-blue font-bold">+91 98765 43210</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-kk-teal/10 rounded-full flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5 text-kk-teal" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Email Us</h4>
+                    <p className="text-slate-500 mb-1">For general queries</p>
+                    <a href="mailto:support@kkmulti.com" className="text-kk-blue font-bold">support@kkmulti.com</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-kk-teal/10 rounded-full flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-kk-teal" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Visit Our Office</h4>
+                    <p className="text-slate-500">123 Repair Street, Sector 45<br/>City, State 123456</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="lg:w-1/2">
+              <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-slate-100">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">Send Us A Message</h3>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-bold text-slate-700">Full Name</label>
+                      <input type="text" id="name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-kk-teal focus:ring-2 focus:ring-kk-teal/20 transition-all bg-slate-50 focus:bg-white" placeholder="John Doe" />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-bold text-slate-700">Phone Number</label>
+                      <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-kk-teal focus:ring-2 focus:ring-kk-teal/20 transition-all bg-slate-50 focus:bg-white" placeholder="+91 98765 43210" />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="service" className="text-sm font-bold text-slate-700">Service Required</label>
+                    <select id="service" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-kk-teal focus:ring-2 focus:ring-kk-teal/20 transition-all bg-slate-50 focus:bg-white text-slate-600">
+                      <option value="">Select a service</option>
+                      <option value="ac">AC Repair & Service</option>
+                      <option value="refrigerator">Refrigerator Repair</option>
+                      <option value="washing-machine">Washing Machine Repair</option>
+                      <option value="microwave">Microwave Repair</option>
+                      <option value="other">Other Appliance</option>
+                    </select>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-bold text-slate-700">Your Message</label>
+                    <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-kk-teal focus:ring-2 focus:ring-kk-teal/20 transition-all bg-slate-50 focus:bg-white resize-none" placeholder="Describe the issue you are facing..."></textarea>
+                  </div>
+                  
+                  <button type="button" className="w-full bg-kk-blue hover:bg-[#08152e] text-white font-bold py-4 rounded-xl transition-colors shadow-md flex items-center justify-center gap-2">
+                    Send Request <ArrowRight className="w-5 h-5" />
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-kk-blue text-white py-16 relative overflow-hidden">
         {/* Abstract Wrench watermark */}
@@ -721,8 +782,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer 
-        className="pt-20 pb-10 border-t border-slate-200 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: `url('/images/footer-01.png')` }}
+        className="pt-20 pb-10 border-t border-slate-200 bg-cover bg-center bg-no-repeat relative bg-[url('/images/footer_img_background.png')] md:bg-[url('/images/footer-01.png')]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
@@ -780,7 +840,7 @@ export default function HomePage() {
             <div>
               <h4 className="text-slate-900 font-extrabold mb-6 uppercase tracking-wider text-sm">Find Us</h4>
               <div className="w-full h-32 bg-slate-200 rounded-xl overflow-hidden shadow-inner relative border border-slate-200">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112173.08200612663!2d77.138945!3d28.5272181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style={{border:0}} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.0921705646447!2d73.7721601!3d18.5698829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf1ba5c42d25%3A0xae3383c823833690!2sKK%20Multi%20Services!5e0!3m2!1sen!2sin!4v1789969080377!5m2!1sen!2sin" width="100%" height="100%" style={{border:0}} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
               <div className="mt-4 flex items-start gap-2 text-slate-500 text-xs font-medium">
                 <MapPin className="w-4 h-4 shrink-0 text-kk-teal" />

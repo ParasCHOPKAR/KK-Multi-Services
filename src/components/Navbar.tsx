@@ -1,0 +1,100 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, ArrowRight, Menu, X } from "lucide-react";
+
+export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <>
+      <nav className="w-full bg-white border-b border-slate-100 sticky top-0 z-50">
+        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex justify-between items-center py-2 md:py-3">
+            {/* Logo */}
+            <div className="flex shrink-0">
+              <Link href="/" className="flex items-center">
+                <Image src="/images/logo.jpg" alt="KK Multi Services Logo" width={240} height={70} className="h-12 md:h-14 w-auto object-contain" priority />
+              </Link>
+            </div>
+
+            {/* Nav Links - Desktop */}
+            <div className="hidden lg:flex flex-1 justify-center items-center space-x-6 xl:space-x-8">
+              <Link href="#top" className="text-sm font-bold text-slate-900 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-kk-red">Home</Link>
+              <Link href="#about" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">About Us</Link>
+              <Link href="#services" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Services</Link>
+              <Link href="#areas" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Areas We Serve</Link>
+              <Link href="#contact" className="text-sm font-medium text-slate-600 hover:text-kk-blue transition-colors">Contact Us</Link>
+            </div>
+
+            {/* CTA & Mobile Toggle */}
+            <div className="flex items-center justify-end gap-4 md:gap-6">
+              <div className="hidden md:flex items-center gap-6">
+                <a href="tel:+919876543210" className="flex items-center gap-2 text-slate-700 font-bold hover:text-kk-blue transition-colors">
+                  <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <span className="hidden xl:block">+91 98765 43210</span>
+                </a>
+                <a href="#" className="hidden lg:flex bg-kk-red hover:bg-kk-red-light text-white px-6 py-3 rounded-md font-bold text-sm transition-all shadow-md hover:shadow-lg items-center gap-2">
+                  Get a Quote <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+              
+              {/* Mobile Menu Button */}
+              <button 
+                className="lg:hidden p-2 text-slate-600 hover:text-kk-blue transition-colors"
+                onClick={() => setIsMobileMenuOpen(true)}
+              >
+                <Menu className="w-7 h-7" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Sidebar Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[60] bg-black/50 lg:hidden" onClick={() => setIsMobileMenuOpen(false)}></div>
+      )}
+
+      {/* Mobile Sidebar */}
+      <div className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[70] transform transition-transform duration-300 ease-in-out lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} shadow-2xl`}>
+        <div className="flex justify-between items-center p-5 border-b border-slate-100">
+          <Image src="/images/logo.jpg" alt="KK Multi Services Logo" width={150} height={44} className="h-10 w-auto object-contain" />
+          <button 
+            className="p-2.5 text-slate-500 hover:text-kk-red transition-colors bg-slate-50 hover:bg-slate-100 rounded-full"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <div className="flex flex-col p-6 space-y-1">
+          <Link href="#top" className="text-lg font-bold text-slate-900 border-b border-slate-50 py-3" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link href="#about" className="text-lg font-medium text-slate-600 hover:text-kk-blue transition-colors border-b border-slate-50 py-3" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+          <Link href="#services" className="text-lg font-medium text-slate-600 hover:text-kk-blue transition-colors border-b border-slate-50 py-3" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+          <Link href="#areas" className="text-lg font-medium text-slate-600 hover:text-kk-blue transition-colors border-b border-slate-50 py-3" onClick={() => setIsMobileMenuOpen(false)}>Areas We Serve</Link>
+          <Link href="#contact" className="text-lg font-medium text-slate-600 hover:text-kk-blue transition-colors border-b border-slate-50 py-3" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+          
+          <div className="pt-8 mt-4">
+            <a href="tel:+919876543210" className="flex items-center gap-4 text-slate-700 font-bold hover:text-kk-blue transition-colors mb-6 p-4 bg-slate-50 rounded-xl">
+              <div className="w-12 h-12 rounded-full bg-kk-blue/10 flex items-center justify-center text-kk-blue shrink-0">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-slate-500 font-medium">Call Us Now</span>
+                <span className="text-lg">+91 98765 43210</span>
+              </div>
+            </a>
+            <a href="#" className="bg-kk-red hover:bg-kk-red-light text-white px-6 py-4 rounded-xl font-bold text-base transition-all shadow-md flex items-center justify-center gap-2 w-full text-center">
+              Get a Quote <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
